@@ -3,7 +3,8 @@
 ## 使用
 
 - VSCode 安装 [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) 插件
-- 编辑 `data.json` 中的的对应字段
+- 从 Excel 表格中复制排班表到 `input.txt`，正确的格式是每个单元格有一个名字，一共七行若干列
+- 运行 `convert_excel_to_json.py` 以生成 `data.json` 中的的对应字段
 - 预览 `main.typ` 并导出
 
 ## 字体
