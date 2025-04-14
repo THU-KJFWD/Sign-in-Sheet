@@ -8,7 +8,7 @@
 ) = {
   set text(lang: "zh", region: "cn")
 
-  set page(paper: "a4", margin: (x: 10%, y: 10%, top: 8%, bottom: 8%))
+  set page(paper: "a4", margin: (x: 10%, y: 10%, top: 5%, bottom: 3%))
 
   let num_to_chinese(id) = {
          if id == 1 { "一" }
@@ -48,12 +48,12 @@
     周次：#underline("  第      周  ", offset: 5pt) ★
   ])
 
-  v(2em)
+  v(1.5em)
 
   // 计算需要填充的空项数量，合并原始列表和空元素
   let manifest = members.at(str(weekday))
   let member_count = manifest.len()
-  let manifest = manifest + range(max_members - member_count).map(_ => "")
+  // let manifest = manifest + range(max_members - member_count).map(_ => "")
 
   // if member_count < max_members [
   //   #let manifest = manifest + range(max_members - member_count).map(_ => "")
@@ -64,8 +64,16 @@
     (item) => ([#item], [], [], [], [])
   ).flatten()
 
+  let manifest2 = range(max_members - member_count).map(_ => "")
+
+  // 生成表格行
+  let items2 = manifest2.map(
+    (item) => ([], [爱心勤工], [], [], [])
+  ).flatten()
+
+  let items = items + items2
   [
-    #set text(number-type: "lining", 1em)
+    #set text(number-type: "lining", .9em)
 
     #tablex(
       rows: 2.2em,
@@ -94,7 +102,7 @@
     )
   ]
 
-  v(2em)
+  v(1em)
 
   box(baseline: 0%, width: 80%)[
     #align(left, [#set text(size: .8em)

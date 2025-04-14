@@ -6,5 +6,5 @@
 
 #generate_sheets(
   data.members,
-  max_members: 8 // 希望表格一共有多少行
+  max_members: 18+3 // 希望表格一共有多少行
 )
