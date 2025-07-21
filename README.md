@@ -3,9 +3,9 @@
 ## 使用
 
 - VSCode 安装 [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) 插件
-- 从 Excel 表格中复制排班表到 `input.txt`，正确的格式是每个单元格有一个名字，一共七列若干行
+- 从 Excel 表格中复制排班表到 `input.txt`，一共七列若干行
 - 运行 `convert_excel_to_json.py` 以生成 `data.json` 中的的对应字段
-- 预览 `main.typ` 并导出
+- 预览 `main.typ` 并导出 PDF
 
 ## 字体
 
