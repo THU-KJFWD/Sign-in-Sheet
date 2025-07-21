@@ -4,7 +4,8 @@
   title: "科技服务分队C楼岗签到表",
   weekday: 1,
   members: none,
-  max_members: none
+  max_members: none,
+  volunteer_enabled: true,
 ) = {
   set text(lang: "zh", region: "cn")
 
@@ -67,8 +68,9 @@
   let manifest2 = range(max_members - member_count).map(_ => "")
 
   // 生成表格行
+  let volunteer_text = if volunteer_enabled { "爱心勤工" } else { "" }
   let items2 = manifest2.map(
-    (item) => ([], [爱心勤工], [], [], [])
+    (item) => ([], volunteer_text, [], [], [])
   ).flatten()
 
   let items = items + items2
@@ -133,13 +135,14 @@
   ]
 }
 
-#let generate_sheets = (members, max_members: 12) => {
+#let generate_sheets = (members, max_members: 12, volunteer_enabled: true) => {
   let weekday = 1
   while weekday < 8 {
     sheet(
       weekday: weekday,
       members: members,
-      max_members: max_members
+      max_members: max_members,
+      volunteer_enabled: volunteer_enabled,
     )
     weekday = weekday + 1
   }
